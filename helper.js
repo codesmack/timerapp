@@ -61,14 +61,11 @@ function showCountDown(e, timeUpCallback, playAudio, playStartAudioOnce) {
             startAudio.pause();
             l('playing audio');
         }
-
         
         if (endAudio != undefined && playAudio)
         {
             endAudio.muted = false;
-            l('playing other audio');
-            endAudio.play();
-            endAudio.play();
+            l('playing end audio');
             endAudio.play();
         }
         l('timeUpCallback: ' + timeUpCallback);
