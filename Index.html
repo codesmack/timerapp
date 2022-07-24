@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Med</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <style>
+        .btnSize {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+    <script src="helper.js"></script>
+</head>
+
+<body>
+    <div class="w-75 m-auto">
+        <div class="container-fluid d-flex border border-info justify-content-start my-2 py-2 rounded-2">
+            <button id="tracker0" class="bg-danger btnSize rounded-circle"></button>
+            <button id="tracker1" class="ms-3 bg-success invisible btnSize rounded-circle"></button>
+            <button id="tracker2" class="ms-3 bg-primary invisible btnSize rounded-circle"></button>
+            <button id="tracker3" class="ms-3 bg-warning invisible btnSize rounded-circle"></button>
+        </div>
+        <div class="container-fluid d-flex border border-info flex-column justify-content-start my-2 py-2 rounded-2">
+            <button class="btn btn-danger visible w-25" onclick="onMedicineTaken(this,1)">Red Medicine</button>
+            <button class="btn btn-success invisible w-25" onclick="onMedicineTaken(this,2)">Green Medicine</button>
+            <button class="btn btn-primary invisible w-25" onclick="onMedicineTaken(this,3)">Blue Medicine</button>
+            <button class="btn btn-warning invisible w-25" onclick="onMedicineTaken(this,4)">Yellow Medicine</button>
+            <button class="btn btn-info btn-lg invisible w-25">All Done</button>
+            <audio id="startAudio">
+                <source src="80-bpm-electronic-drum-beat-loop.mp3" type="audio/mp3" muted>
+                Your browser does not support the audio tag.
+            </audio>
+            <audio id="endAudio" muted>
+                <source src="Twin-bell-alarm-clock.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+        <div id="timer" class="container-fluid border border-info my-2 py-2 rounded-2">
+            <div class="d-flex text-center fs-2 m-auto">
+                <label for="">Time Remaining</label>
+                <div class="col-1 bg-warning rounded ms-2 fs-1" id="min">
+                    00
+                </div>
+                <div class="mx-1">:</div>
+                <div class="col-1 bg-warning rounded fs-1" id="sec">00</div>
+            </div>
+        </div>
+        <div class="container-fluid border border-info my-2 py-2 rounded-2">
+            <label class="fs-2">Timer in minutes</label>
+            <input type="number" class="fs-3 text-center ms-2" id="timerText" value="1" min="1" max="100">
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    let colors = ['red', 'green', 'blue', 'yellow'];
+    let timerStarted = false;
+    function log(msg) {
+        console.log(msg);
+    }
+
+    function getTimerTime() {
+        if (false) {
+            let timerSec = Number(document.getElementById("timerText").value) * 60;
+            console.log("timerSec: " + timerSec);
+            return timerSec;
+        }
+        return 10;
+    }
+
+    function onMedicineTaken(btn, idx) {
+        if (!timerStarted) {
+            btn.classList.replace("visible", "invisible");
+            btn.nextElementSibling.classList.replace("invisible", "visible");
+            log("start timer 6 mins");
+
+            if (idx != 4) {
+                document.getElementById("tracker" + idx).classList.replace("invisible", "visible");
+                timerStarted = true;
+                timer(getTimerTime(), () => timerStarted = false, true, true);
+            }
+        }
+    }
+
+</script>
