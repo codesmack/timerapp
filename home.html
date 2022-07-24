@@ -22,19 +22,22 @@
 </head>
 
 <body>
-    <div class="w-75 m-auto">
-        <div class="container-fluid d-flex border border-info justify-content-start my-2 py-2 rounded-2">
+    <div class="m-2">
+        <div class="container d-flex bg-info border border-info justify-content-start my-2 py-2 rounded-2">
+            <label class="fs-1 fw-bold">Welcome to Timed Medicine</label>
+        </div>
+        <div class="container d-flex border border-info justify-content-start my-2 py-2 rounded-2">
             <button id="tracker0" class="bg-danger btnSize rounded-circle"></button>
             <button id="tracker1" class="ms-3 bg-success invisible btnSize rounded-circle"></button>
             <button id="tracker2" class="ms-3 bg-primary invisible btnSize rounded-circle"></button>
             <button id="tracker3" class="ms-3 bg-warning invisible btnSize rounded-circle"></button>
         </div>
-        <div class="container-fluid d-flex border border-info flex-column justify-content-start my-2 py-2 rounded-2">
-            <button class="btn btn-danger visible w-25" onclick="onMedicineTaken(this,1)">Red Medicine</button>
-            <button class="btn btn-success invisible w-25" onclick="onMedicineTaken(this,2)">Green Medicine</button>
-            <button class="btn btn-primary invisible w-25" onclick="onMedicineTaken(this,3)">Blue Medicine</button>
-            <button class="btn btn-warning invisible w-25" onclick="onMedicineTaken(this,4)">Yellow Medicine</button>
-            <button class="btn btn-info btn-lg invisible w-25">All Done</button>
+        <div class="container d-flex border border-info flex-column justify-content-start my-2 py-2 rounded-2">
+            <button class="btn btn-danger visible w-75" onclick="onMedicineTaken(this,1)">Red Medicine</button>
+            <button class="btn btn-success invisible w-75" onclick="onMedicineTaken(this,2)">Green Medicine</button>
+            <button class="btn btn-primary invisible w-75" onclick="onMedicineTaken(this,3)">Blue Medicine</button>
+            <button class="btn btn-warning invisible w-75" onclick="onMedicineTaken(this,4)">Yellow Medicine</button>
+            <button class="btn btn-info btn-lg invisible w-75">All Done</button>
             <audio id="startAudio">
                 <source src="80-bpm-electronic-drum-beat-loop.mp3" type="audio/mp3" muted>
                 Your browser does not support the audio tag.
@@ -44,17 +47,17 @@
                 Your browser does not support the audio tag.
             </audio>
         </div>
-        <div id="timer" class="container-fluid border border-info my-2 py-2 rounded-2">
+        <div id="timer" class="container border border-info my-2 py-2 rounded-2">
             <div class="d-flex text-center fs-2 m-auto">
                 <label for="">Time Remaining</label>
-                <div class="col-1 bg-warning rounded ms-2 fs-1" id="min">
+                <div class="col-3 bg-warning rounded ms-2 fs-1" id="min">
                     00
                 </div>
                 <div class="mx-1">:</div>
-                <div class="col-1 bg-warning rounded fs-1" id="sec">00</div>
+                <div class="col-3 bg-warning rounded fs-1" id="sec">00</div>
             </div>
         </div>
-        <div class="container-fluid border border-info my-2 py-2 rounded-2">
+        <div class="container border border-info my-2 py-2 rounded-2">
             <label class="fs-2">Timer in minutes</label>
             <input type="number" class="fs-3 text-center ms-2" id="timerText" value="1" min="1" max="100">
         </div>
