@@ -59,7 +59,7 @@
         </div>
         <div class="container border border-info my-2 py-2 rounded-2">
             <label class="fs-2">Timer in minutes</label>
-            <input type="number" class="fs-3 text-center ms-2" id="timerText" value="1" min="1" max="100">
+            <input type="number" class="fs-3 text-center ms-2" id="timerText" value="6" min="1" max="100">
         </div>
 
     </div>
@@ -74,12 +74,12 @@
     }
 
     function getTimerTime() {
-        if (false) {
+        if (true) {
             let timerSec = Number(document.getElementById("timerText").value) * 60;
             console.log("timerSec: " + timerSec);
             return timerSec;
         }
-        return 10;
+        //return 10;
     }
 
     function onMedicineTaken(btn, idx) {
